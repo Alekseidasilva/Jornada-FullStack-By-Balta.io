@@ -1,5 +1,4 @@
-﻿using Fina.Api.Api;
-using Fina.Api.Commom.Api;
+﻿using Fina.Api.Commom.Api;
 using Fina.Core.Handlers;
 using Fina.Core.Requests.Categories;
 using Fina.Core.Responses;
@@ -9,7 +8,7 @@ namespace Fina.Api.EndPoints.Categories;
 public class UpdateCategoryEndPoint:IEndpoint
 {
     public static void Map(IEndpointRouteBuilder app)
-    =>app.MapPost("/{id}",HandleAsync)
+    =>app.MapPut("/{id}",HandleAsync)
     .WithName("Categories: Update")
         .WithSummary("Actualiza uma  Categoria")
         .WithDescription("Actualiza uma  Categoria")

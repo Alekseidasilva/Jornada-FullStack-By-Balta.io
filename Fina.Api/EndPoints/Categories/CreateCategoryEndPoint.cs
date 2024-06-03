@@ -1,10 +1,9 @@
-﻿using Fina.Api.Api;
-using Fina.Api.Commom.Api;
+﻿using Fina.Api.Commom.Api;
 using Fina.Core.Handlers;
 using Fina.Core.Requests.Categories;
 using Fina.Core.Responses;
 
-namespace Fina.Api.EndPoints.Category;
+namespace Fina.Api.EndPoints.Categories;
 
 public class CreateCategoryEndPoint:IEndpoint
 {

@@ -1,5 +1,4 @@
-﻿using Fina.Api.Api;
-using Fina.Api.Commom.Api;
+﻿using Fina.Api.Commom.Api;
 using Fina.Core.Handlers;
 using Fina.Core.Requests.Categories;
 using Fina.Core.Responses;

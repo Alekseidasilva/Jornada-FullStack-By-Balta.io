@@ -1,7 +1,5 @@
 ﻿using Fina.Api.Commom.Api;
 using Fina.Api.EndPoints.Categories;
-using Fina.Api.EndPoints.Category;
-using Fina.Api.EndPoints.Transation;
 using Fina.Api.EndPoints.Transations;
 
 namespace Fina.Api.EndPoints;

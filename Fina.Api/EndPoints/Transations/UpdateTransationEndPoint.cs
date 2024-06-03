@@ -1,12 +1,10 @@
 ﻿using System.Security.Claims;
-using Fina.Api.Api;
 using Fina.Api.Commom.Api;
 using Fina.Core.Handlers;
-using Fina.Core.Requests.Categories;
 using Fina.Core.Requests.Transations;
 using Fina.Core.Responses;
 
-namespace Fina.Api.EndPoints.Transation;
+namespace Fina.Api.EndPoints.Transations;
 
 public class UpdateTransationEndPoint:IEndpoint
 {
