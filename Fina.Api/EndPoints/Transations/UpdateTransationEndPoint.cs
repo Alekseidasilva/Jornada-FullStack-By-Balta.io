@@ -10,7 +10,7 @@ public class UpdateTransationEndPoint:IEndpoint
 {
     public static void Map(IEndpointRouteBuilder app)
         =>app.MapPut("/{id}",HandleAsync)
-            .WithName("Transation: Get By All")
+            .WithName("Transation: Update")
             .WithSummary("Recuperar todas as Transacoes")
             .WithDescription("Recuperar todas as Transacoes")
             .WithOrder(5)

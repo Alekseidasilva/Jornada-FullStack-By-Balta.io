@@ -9,8 +9,8 @@ namespace Fina.Api.EndPoints.Transations;
 public class GetByPeriodTransationEndPoint:IEndpoint
 {
     public static void Map(IEndpointRouteBuilder app)
-    =>app.MapGet("/{id}",HandleAsync)
-    .WithName("Transation: Get By All")
+    =>app.MapGet("/",HandleAsync)
+    .WithName("Transation: Get By Period")
         .WithSummary("Recuperar todas as Transacoes")
         .WithDescription("Recuperar todas as Transacoes")
         .WithOrder(5)
