@@ -1,6 +1,12 @@
-﻿public partial class CreateCategoryPage : ComponentBase
-{
+﻿using Fina.Core.Handlers;
+using Fina.Core.Requests.Categories;
+using Microsoft.AspNetCore.Components;
+using MudBlazor;
 
+namespace Fina.Web.Pages.Categories;
+
+public partial class CreateCategoryPage:ComponentBase
+{
     #region Properties
     public bool IsBusy { get; set; } = false;
     public CreateCategoryRequest InputModel { get; set; } = new CreateCategoryRequest();
@@ -14,26 +20,26 @@
     public ISnackbar Snackbar { get; set; } = null!;
     #endregion
     #region Methods
-
     public async Task OnValidSubmitAsync()
     {
         IsBusy = true;
         try
         {
-            var response = await Handler.CreateAsync(InputModel);
-            if (response.IsSucceeded)
+            var result = await Handler.CreateAsync(InputModel);
+            if (result.IsSuccess)
             {
                 Snackbar.Add("Category created successfully", Severity.Success);
                 NavigationManager.NavigateTo("/categorias");
             }
             else
             {
-                Snackbar.Add(response.Message, Severity.Error);
+                Snackbar.Add(result.Message, Severity.Error);
             }
         }
         catch (Exception e)
         {
-            Snackbar.Add(e.Message, Severity.Error);
+            Snackbar.Add("Erro: "+e.Message, Severity.Warning);
+            
         }
         finally
         {
@@ -41,5 +47,4 @@
         }
     }
     #endregion
-
 }

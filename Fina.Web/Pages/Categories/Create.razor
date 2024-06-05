@@ -2,6 +2,37 @@
 @inherits CreateCategoryPage
 
 <MudText Typo="Typo.h3">Nova Categoria</MudText>
-<MudPaper Class="pa-8 mt-444">
-    <EditForm Model="@inputModel" OnInvalidSubmit="OnValidSubmitAsync()"></EditForm>
+<MudPaper Class="pa-8 mt-4">
+    <EditForm Model="@InputModel" OnInvalidSubmit="OnValidSubmitAsync">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        
+        <MudTextField
+            Label="Titulo"
+            HelperText="Campo Obrigatorio"
+            @bind-Value="InputModel.Title"
+            For="@(() => InputModel.Title)">
+        </MudTextField>
+        <MudTextField
+            Label="Descricao"
+            Lines="5"
+            HelperText="Campo Obrigatorio"
+            @bind-Value="InputModel.Description"
+            For="@(() => InputModel.Description)">
+        </MudTextField>
+        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">
+            Salvar
+        </MudButton>
+        <MudButton Color="Color.Dark" @onclick="@(() => Snackbar.Add("The reactor type is RBMK-1000", Severity.Normal))">Normal Snackbar</MudButton>
+    </EditForm>
 </MudPaper>
+
+
+
+
+
+
+
+
+
+
+
