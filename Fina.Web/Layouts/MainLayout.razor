@@ -1,4 +1,4 @@
-﻿@inherits LayoutComponentBase
+﻿@* @inherits LayoutComponentBase
 
 <MudThemeProvider IsDarkMode="true"/>
 <MudDialogProvider/>
@@ -13,3 +13,67 @@
         </MudContainer>
     </MudMainContent>
 </MudLayout>
+ *@
+
+
+
+@inherits LayoutComponentBase
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+
+    <MudAppBar>
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        ALAYSchoolGest
+
+
+        @* <MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" Class="mr-5" /> *@
+        <MudSpacer />
+        <MudBadge Content="@_selectedIndex" Overlap="true" Class="mx-6 my-4">
+            <MudIcon Icon="@Icons.Material.Filled.Email" Color="Color.Default" />
+        </MudBadge>
+        <MudIconButton OnClick="@Add" Icon="@Icons.Material.Outlined.Add" />
+        <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
+        <MudIconButton Icon="@Icons.Material.Outlined.Remove" Color="Color.Inherit" />
+        <MudIconButton Icon="@Icons.Material.Outlined.Settings" Color="Color.Inherit" />
+
+        <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
+        <MudIconButton Icon="@Icons.Material.Outlined.PushPin" />
+        <MudIconButton Icon="@Icons.Material.Outlined.PeopleAlt" />
+        <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit" />
+
+
+
+    </MudAppBar>
+    <MudDrawer @bind-Open="@_drawerOpen">
+        <MyNavMenu />
+
+    </MudDrawer>
+
+
+
+
+
+
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Medium">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    bool _drawerOpen = true;
+    int _selectedIndex = 10;
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+    void Add()
+    {
+        _selectedIndex++;
+    }
+}

@@ -1,7 +1,9 @@
 using Fina.Core;
+using Fina.Core.Handlers;
+using Fina.Web;
+using Fina.Web.Handler;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Fina.Web;
 using MudBlazor.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -11,8 +13,8 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddMudServices();
 builder.Services.AddHttpClient(WebConfiguration.HttpClientName
-,opt=>opt.BaseAddress=new Uri(Configuration.BackEndUrl));
-
+, opt => opt.BaseAddress = new Uri(Configuration.BackEndUrl));
+builder.Services.AddScoped<ICategoryHandler, CategoryHandler>();
 
 await builder.Build().RunAsync();
 

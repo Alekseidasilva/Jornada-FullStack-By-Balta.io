@@ -1,0 +1,7 @@
+﻿@page "/categorias/adicionar"
+@inherits CreateCategoryPage
+
+<MudText Typo="Typo.h3">Nova Categoria</MudText>
+<MudPaper Class="pa-8 mt-444">
+    <EditForm Model="@inputModel" OnInvalidSubmit="OnValidSubmitAsync()"></EditForm>
+</MudPaper>
